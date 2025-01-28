@@ -1,5 +1,7 @@
 # Tower Defense Game
 
+![Alt text](../data/Images/Other/TowerDefenseImage.png "Optional title")
+
 ## Description
 This game is a tower defense inspired by the *Kingdom Rush* series. Each level has a path where successive waves of enemies advance. If enemies reach the end of the path, the player loses health points. To stop them, the player must use money to build towers in the designated construction zones and upgrade them. Enemies drop money when defeated, and the player wins the level after defeating all enemies in all waves. The player can then proceed to the next level until completing the last one.
 
