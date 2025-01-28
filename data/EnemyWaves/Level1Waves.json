@@ -1,0 +1,74 @@
+{
+    "waves": [
+        {
+            "enemies": [
+                "Orc",
+                "Orc",
+                "Orc",
+                "Orc",
+                "Orc",
+                "Slime",
+                "Slime",
+                "Slime",
+                "Slime",
+                "Slime",
+                "Slime",
+                "Slime",
+                "Slime",
+                "Slime",
+                "Slime"
+            ],
+            "delayUntilNextWave": 10.0
+        },
+        {
+            "enemies": [
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wasp",
+                "Wasp",
+                "Wasp",
+                "Wasp",
+                "Wasp",
+                "Wasp",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf"
+            ],
+            "delayUntilNextWave": 5.0
+        },
+        {
+            "enemies": [
+                "Orc",
+                "Orc",
+                "Orc",
+                "Slime",
+                "Slime",
+                "Slime",
+                "Orc",
+                "Orc",
+                "Orc",
+                "Slime",
+                "Slime",
+                "Slime",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf",
+                "Wolf"
+            ],
+            "delayUntilNextWave": 5.0
+        }
+    ]
+}

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="57">
+ <tileset firstgid="1" name="FieldsObjects" tilewidth="95" tileheight="77" tilecount="92" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="16">
+   <image source="images/myTileset/2 Objects/PlaceForTower2.png" width="63" height="64"/>
+  </tile>
+  <tile id="17">
+   <image source="images/myTileset/2 Objects/PlaceForTower1.png" width="62" height="61"/>
+  </tile>
+  <tile id="18">
+   <image source="images/myTileset/2 Objects/1 Shadow/6.png" width="95" height="62"/>
+  </tile>
+  <tile id="19">
+   <image source="images/myTileset/2 Objects/1 Shadow/4.png" width="44" height="37"/>
+  </tile>
+  <tile id="20">
+   <image source="images/myTileset/2 Objects/1 Shadow/3.png" width="30" height="26"/>
+  </tile>
+  <tile id="21">
+   <image source="images/myTileset/2 Objects/1 Shadow/2.png" width="29" height="25"/>
+  </tile>
+  <tile id="22">
+   <image source="images/myTileset/2 Objects/1 Shadow/1.png" width="20" height="21"/>
+  </tile>
+  <tile id="23">
+   <image source="images/myTileset/2 Objects/1 Shadow/5.png" width="55" height="44"/>
+  </tile>
+  <tile id="24">
+   <image source="images/myTileset/2 Objects/2 Fence/9.png" width="5" height="8"/>
+  </tile>
+  <tile id="25">
+   <image source="images/myTileset/2 Objects/2 Fence/8.png" width="17" height="24"/>
+  </tile>
+  <tile id="26">
+   <image source="images/myTileset/2 Objects/2 Fence/7.png" width="7" height="31"/>
+  </tile>
+  <tile id="27">
+   <image source="images/myTileset/2 Objects/2 Fence/6.png" width="12" height="15"/>
+  </tile>
+  <tile id="28">
+   <image source="images/myTileset/2 Objects/2 Fence/5.png" width="15" height="5"/>
+  </tile>
+  <tile id="29">
+   <image source="images/myTileset/2 Objects/2 Fence/4.png" width="24" height="18"/>
+  </tile>
+  <tile id="30">
+   <image source="images/myTileset/2 Objects/2 Fence/3.png" width="26" height="16"/>
+  </tile>
+  <tile id="31">
+   <image source="images/myTileset/2 Objects/2 Fence/2.png" width="25" height="19"/>
+  </tile>
+  <tile id="32">
+   <image source="images/myTileset/2 Objects/2 Fence/1.png" width="27" height="15"/>
+  </tile>
+  <tile id="33">
+   <image source="images/myTileset/2 Objects/2 Fence/10.png" width="17" height="10"/>
+  </tile>
+  <tile id="34">
+   <image source="images/myTileset/2 Objects/3 Pointer/4.png" width="24" height="36"/>
+  </tile>
+  <tile id="35">
+   <image source="images/myTileset/2 Objects/3 Pointer/3.png" width="16" height="36"/>
+  </tile>
+  <tile id="36">
+   <image source="images/myTileset/2 Objects/3 Pointer/2.png" width="14" height="35"/>
+  </tile>
+  <tile id="37">
+   <image source="images/myTileset/2 Objects/3 Pointer/1.png" width="20" height="36"/>
+  </tile>
+  <tile id="38">
+   <image source="images/myTileset/2 Objects/3 Pointer/6.png" width="15" height="10"/>
+  </tile>
+  <tile id="39">
+   <image source="images/myTileset/2 Objects/3 Pointer/5.png" width="24" height="16"/>
+  </tile>
+  <tile id="40">
+   <image source="images/myTileset/2 Objects/4 Stone/15.png" width="21" height="20"/>
+  </tile>
+  <tile id="41">
+   <image source="images/myTileset/2 Objects/4 Stone/14.png" width="22" height="16"/>
+  </tile>
+  <tile id="42">
+   <image source="images/myTileset/2 Objects/4 Stone/13.png" width="19" height="14"/>
+  </tile>
+  <tile id="43">
+   <image source="images/myTileset/2 Objects/4 Stone/12.png" width="29" height="22"/>
+  </tile>
+  <tile id="44">
+   <image source="images/myTileset/2 Objects/4 Stone/11.png" width="35" height="30"/>
+  </tile>
+  <tile id="45">
+   <image source="images/myTileset/2 Objects/4 Stone/10.png" width="27" height="21"/>
+  </tile>
+  <tile id="46">
+   <image source="images/myTileset/2 Objects/4 Stone/9.png" width="19" height="16"/>
+  </tile>
+  <tile id="47">
+   <image source="images/myTileset/2 Objects/4 Stone/8.png" width="38" height="23"/>
+  </tile>
+  <tile id="48">
+   <image source="images/myTileset/2 Objects/4 Stone/7.png" width="37" height="27"/>
+  </tile>
+  <tile id="49">
+   <image source="images/myTileset/2 Objects/4 Stone/6.png" width="12" height="8"/>
+  </tile>
+  <tile id="50">
+   <image source="images/myTileset/2 Objects/4 Stone/5.png" width="7" height="5"/>
+  </tile>
+  <tile id="51">
+   <image source="images/myTileset/2 Objects/4 Stone/4.png" width="13" height="8"/>
+  </tile>
+  <tile id="52">
+   <image source="images/myTileset/2 Objects/4 Stone/3.png" width="11" height="7"/>
+  </tile>
+  <tile id="53">
+   <image source="images/myTileset/2 Objects/4 Stone/2.png" width="6" height="4"/>
+  </tile>
+  <tile id="54">
+   <image source="images/myTileset/2 Objects/4 Stone/1.png" width="11" height="8"/>
+  </tile>
+  <tile id="55">
+   <image source="images/myTileset/2 Objects/4 Stone/16.png" width="22" height="17"/>
+  </tile>
+  <tile id="56">
+   <image source="images/myTileset/2 Objects/5 Grass/3.png" width="5" height="7"/>
+  </tile>
+  <tile id="57">
+   <image source="images/myTileset/2 Objects/5 Grass/2.png" width="9" height="6"/>
+  </tile>
+  <tile id="58">
+   <image source="images/myTileset/2 Objects/5 Grass/1.png" width="5" height="6"/>
+  </tile>
+  <tile id="59">
+   <image source="images/myTileset/2 Objects/5 Grass/6.png" width="5" height="8"/>
+  </tile>
+  <tile id="60">
+   <image source="images/myTileset/2 Objects/5 Grass/5.png" width="6" height="10"/>
+  </tile>
+  <tile id="61">
+   <image source="images/myTileset/2 Objects/5 Grass/4.png" width="8" height="5"/>
+  </tile>
+  <tile id="62">
+   <image source="images/myTileset/2 Objects/6 Flower/9.png" width="8" height="7"/>
+  </tile>
+  <tile id="63">
+   <image source="images/myTileset/2 Objects/6 Flower/8.png" width="7" height="6"/>
+  </tile>
+  <tile id="64">
+   <image source="images/myTileset/2 Objects/6 Flower/7.png" width="8" height="6"/>
+  </tile>
+  <tile id="65">
+   <image source="images/myTileset/2 Objects/6 Flower/6.png" width="6" height="5"/>
+  </tile>
+  <tile id="66">
+   <image source="images/myTileset/2 Objects/6 Flower/5.png" width="6" height="4"/>
+  </tile>
+  <tile id="67">
+   <image source="images/myTileset/2 Objects/6 Flower/4.png" width="6" height="5"/>
+  </tile>
+  <tile id="68">
+   <image source="images/myTileset/2 Objects/6 Flower/3.png" width="5" height="5"/>
+  </tile>
+  <tile id="69">
+   <image source="images/myTileset/2 Objects/6 Flower/2.png" width="6" height="5"/>
+  </tile>
+  <tile id="70">
+   <image source="images/myTileset/2 Objects/6 Flower/1.png" width="6" height="6"/>
+  </tile>
+  <tile id="71">
+   <image source="images/myTileset/2 Objects/6 Flower/12.png" width="8" height="7"/>
+  </tile>
+  <tile id="72">
+   <image source="images/myTileset/2 Objects/6 Flower/11.png" width="6" height="5"/>
+  </tile>
+  <tile id="73">
+   <image source="images/myTileset/2 Objects/6 Flower/10.png" width="6" height="4"/>
+  </tile>
+  <tile id="74">
+   <image source="images/myTileset/2 Objects/7 Decor/Dirt1.png" width="10" height="10"/>
+  </tile>
+  <tile id="75">
+   <image source="images/myTileset/2 Objects/7 Decor/Log4.png" width="11" height="33"/>
+  </tile>
+  <tile id="76">
+   <image source="images/myTileset/2 Objects/7 Decor/Log3.png" width="45" height="14"/>
+  </tile>
+  <tile id="77">
+   <image source="images/myTileset/2 Objects/7 Decor/Log2.png" width="33" height="32"/>
+  </tile>
+  <tile id="78">
+   <image source="images/myTileset/2 Objects/7 Decor/Log1.png" width="34" height="21"/>
+  </tile>
+  <tile id="79">
+   <image source="images/myTileset/2 Objects/7 Decor/Tree2.png" width="29" height="26"/>
+  </tile>
+  <tile id="80">
+   <image source="images/myTileset/2 Objects/7 Decor/Tree1.png" width="66" height="77"/>
+  </tile>
+  <tile id="81">
+   <image source="images/myTileset/2 Objects/7 Decor/Lamp6.png" width="16" height="22"/>
+  </tile>
+  <tile id="82">
+   <image source="images/myTileset/2 Objects/7 Decor/Lamp5.png" width="19" height="14"/>
+  </tile>
+  <tile id="83">
+   <image source="images/myTileset/2 Objects/7 Decor/Lamp4.png" width="27" height="17"/>
+  </tile>
+  <tile id="84">
+   <image source="images/myTileset/2 Objects/7 Decor/Lamp3.png" width="13" height="35"/>
+  </tile>
+  <tile id="85">
+   <image source="images/myTileset/2 Objects/7 Decor/Lamp2.png" width="11" height="35"/>
+  </tile>
+  <tile id="86">
+   <image source="images/myTileset/2 Objects/7 Decor/Lamp1.png" width="20" height="35"/>
+  </tile>
+  <tile id="87">
+   <image source="images/myTileset/2 Objects/7 Decor/Box4.png" width="14" height="16"/>
+  </tile>
+  <tile id="88">
+   <image source="images/myTileset/2 Objects/7 Decor/Box3.png" width="19" height="18"/>
+  </tile>
+  <tile id="89">
+   <image source="images/myTileset/2 Objects/7 Decor/Box2.png" width="18" height="18"/>
+  </tile>
+  <tile id="90">
+   <image source="images/myTileset/2 Objects/7 Decor/Box1.png" width="17" height="16"/>
+  </tile>
+  <tile id="91">
+   <image source="images/myTileset/2 Objects/7 Decor/Dirt6.png" width="15" height="14"/>
+  </tile>
+  <tile id="92">
+   <image source="images/myTileset/2 Objects/7 Decor/Dirt5.png" width="8" height="7"/>
+  </tile>
+  <tile id="93">
+   <image source="images/myTileset/2 Objects/7 Decor/Dirt4.png" width="9" height="6"/>
+  </tile>
+  <tile id="94">
+   <image source="images/myTileset/2 Objects/7 Decor/Dirt3.png" width="8" height="9"/>
+  </tile>
+  <tile id="95">
+   <image source="images/myTileset/2 Objects/7 Decor/Dirt2.png" width="16" height="14"/>
+  </tile>
+  <tile id="96">
+   <image source="images/myTileset/2 Objects/8 Camp/3.png" width="53" height="34"/>
+  </tile>
+  <tile id="97">
+   <image source="images/myTileset/2 Objects/8 Camp/2.png" width="36" height="51"/>
+  </tile>
+  <tile id="98">
+   <image source="images/myTileset/2 Objects/8 Camp/1.png" width="57" height="36"/>
+  </tile>
+  <tile id="99">
+   <image source="images/myTileset/2 Objects/8 Camp/5.png" width="22" height="14"/>
+  </tile>
+  <tile id="100">
+   <image source="images/myTileset/2 Objects/8 Camp/6.png" width="22" height="13"/>
+  </tile>
+  <tile id="101">
+   <image source="images/myTileset/2 Objects/8 Camp/4.png" width="56" height="38"/>
+  </tile>
+  <tile id="102">
+   <image source="images/myTileset/2 Objects/9 Bush/3.png" width="33" height="22"/>
+  </tile>
+  <tile id="103">
+   <image source="images/myTileset/2 Objects/9 Bush/2.png" width="37" height="26"/>
+  </tile>
+  <tile id="104">
+   <image source="images/myTileset/2 Objects/9 Bush/1.png" width="26" height="23"/>
+  </tile>
+  <tile id="105">
+   <image source="images/myTileset/2 Objects/9 Bush/6.png" width="40" height="26"/>
+  </tile>
+  <tile id="106">
+   <image source="images/myTileset/2 Objects/9 Bush/5.png" width="41" height="25"/>
+  </tile>
+  <tile id="107">
+   <image source="images/myTileset/2 Objects/9 Bush/4.png" width="39" height="25"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="109" name="FieldsTileset" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="images/myTileset/1 Tiles/FieldsTileset.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="173" name="FieldsTileset" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="images/myTileset/1 Tiles/FieldsTileset.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="237" name="sprite_sheet" tilewidth="95" tileheight="77" tilecount="100" columns="10">
+  <image source="images/myTileset/sprite_sheet.png" width="950" height="770"/>
+ </tileset>
+ <layer id="1" name="Capa de patrones 1" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzNlbEOgjAQhvvKbiw+ggvvAbWDBAaGDhocRHkj7pI2acqppRevDt9C8+fj0svfWilVv8EC44fzX4HeayHvA+iFvTfAOPcs7Ef32flL3PVQyHtneDvgGZGaWzK8mHu5bAO0gHbsyU0MX0pWOuexwrkwfxHMhfmwH6l9pDqE2+e+H2fivnyHUP2JuRNQZXqxo3TEFJ1Tbvx+AI6MmVP+zajteyXRawMxM6fX9s4c74JEj3/bhX9jBROpbCA=
+  </data>
+ </layer>
+ <layer id="6" name="Capa de patrones 4" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgY4M6InSZVPSH9xJpPDcCGxw5S/UuMPg80Mz5j0UdLIAe1gw+LXZSGOzn6rYlQ60qjcCE3fukNfuGRIzZsQOFMjv/0gXo06Rwuf4D4B5StQ4HdxPgXFn7/oPwPUPovGfaQYh82wI1Hjph4pnX6JSa/0Cqv4nMPMYAcd9G6fCDVTbjcQan70N0xWMpDYtsP5LoXl34Aa0kZbA==
+  </data>
+ </layer>
+ <objectgroup id="7" name="Path" visible="0">
+  <object id="16" x="256" y="0">
+   <point/>
+  </object>
+  <object id="15" x="256" y="96">
+   <point/>
+  </object>
+  <object id="17" x="288" y="96">
+   <point/>
+  </object>
+  <object id="18" x="288" y="128">
+   <point/>
+  </object>
+  <object id="19" x="352" y="128">
+   <point/>
+  </object>
+  <object id="20" x="352" y="256">
+   <point/>
+  </object>
+  <object id="21" x="320" y="256">
+   <point/>
+  </object>
+  <object id="22" x="320" y="288">
+   <point/>
+  </object>
+  <object id="23" x="256" y="288">
+   <point/>
+  </object>
+  <object id="24" x="256" y="320">
+   <point/>
+  </object>
+  <object id="25" x="192" y="320">
+   <point/>
+  </object>
+  <object id="26" x="192" y="448">
+   <point/>
+  </object>
+  <object id="27" x="320" y="448">
+   <point/>
+  </object>
+  <object id="28" x="320" y="416">
+   <point/>
+  </object>
+  <object id="29" x="448" y="416">
+   <point/>
+  </object>
+  <object id="30" x="448" y="448">
+   <point/>
+  </object>
+  <object id="31" x="480" y="448">
+   <point/>
+  </object>
+  <object id="32" x="480" y="480">
+   <point/>
+  </object>
+  <object id="33" x="512" y="480">
+   <point/>
+  </object>
+  <object id="34" x="512" y="544">
+   <point/>
+  </object>
+  <object id="35" x="544" y="544">
+   <point/>
+  </object>
+  <object id="36" x="544" y="576">
+   <point/>
+  </object>
+  <object id="37" x="672" y="576">
+   <point/>
+  </object>
+  <object id="38" x="672" y="448">
+   <point/>
+  </object>
+  <object id="39" x="640" y="448">
+   <point/>
+  </object>
+  <object id="40" x="640" y="320">
+   <point/>
+  </object>
+  <object id="41" x="704" y="320">
+   <point/>
+  </object>
+  <object id="42" x="704" y="288">
+   <point/>
+  </object>
+  <object id="43" x="768" y="288">
+   <point/>
+  </object>
+  <object id="44" x="768" y="256">
+   <point/>
+  </object>
+  <object id="45" x="832" y="256">
+   <point/>
+  </object>
+  <object id="46" x="832" y="224">
+   <point/>
+  </object>
+  <object id="47" x="960" y="224">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="4" name="BuildingZones">
+  <object id="48" x="288" y="192">
+   <point/>
+  </object>
+  <object id="49" x="256" y="384">
+   <point/>
+  </object>
+  <object id="50" x="320" y="352">
+   <point/>
+  </object>
+  <object id="51" x="128" y="448">
+   <point/>
+  </object>
+  <object id="52" x="384" y="480">
+   <point/>
+  </object>
+  <object id="53" x="736" y="544">
+   <point/>
+  </object>
+  <object id="54" x="608" y="512">
+   <point/>
+  </object>
+  <object id="55" x="704" y="384">
+   <point/>
+  </object>
+  <object id="56" x="640" y="256">
+   <point/>
+  </object>
+ </objectgroup>
+</map>
