@@ -55,19 +55,3 @@ I created factory classes responsible for instantiating enemies and towers. Mana
 
 ### Sound Manager Implementation
 Adding sound to the game was challenging, especially understanding how `sf::SoundBuffer` and `sf::Sound` work in SFML. I needed a way for multiple classes to play sounds without scattering sound logic throughout the codebase. I created a `SoundManager` singleton class that stores a buffer for each sound in the game and provides public methods for other classes to play sounds without managing the sound data themselves.
-
----
-
-## Feedback and Personal Opinion
-### Course Feedback
-I think making the final project of this course require learning a library like SFML from scratch to create a game without a game engine is a poor choice. For students with little to no experience in C++ (like myself), this was incredibly difficult and time-consuming. If at least part of the curriculum had been dedicated to teaching SFML, it might have been more acceptable, but even then, it would feel like two courses in one. After all, the goal of the course is to learn C++, not SFML. Moreover, with modern game engines widely used in the industry, investing time in understanding SFML feels like a wasted effort.
-
-That said, not all aspects of the project were negative. I became much more comfortable with C++, and I am proud of the resulting game. Translating my usual C# coding practices into C++ was challenging at first, but once I got the hang of it, I progressed quickly.
-
-### Language Feedback
-C++ feels much more tedious and error-prone than C#. While I know my opinion is partly influenced by my inexperience, I believe that even as an expert, I would feel the same. I now understand why so many people use Blueprints in Unreal Engine instead of writing C++ code, while in Unity, it’s rare to find someone using visual scripting. With the computational power of modern hardware, the greater efficiency of C++ does not seem worth the added complexity compared to C#. C# can perform just as well with proper programming practices, optimization techniques, and multithreading when necessary.
-
----
-
-## Code Improvement Suggestions
-I would love detailed feedback on how to improve my code. I am certain there are many inefficiencies and suboptimal implementations in my project, and I am eager to hear your thoughts. While the course was far from perfect, I found it to be a very thorough and comprehensive introduction to C++. Thank you for everything!
