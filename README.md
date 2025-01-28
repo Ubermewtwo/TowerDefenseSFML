@@ -1,103 +1,73 @@
-# CMake SFML Project Template
+# Tower Defense Game
 
-This repository template should allow for a fast and hassle-free kick start of your next SFML project using CMake.
-Thanks to [GitHub's nature of templates](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template), you can fork this repository without inheriting its Git history.
+## Description
+This game is a tower defense inspired by the *Kingdom Rush* series. Each level has a path where successive waves of enemies advance. If enemies reach the end of the path, the player loses health points. To stop them, the player must use money to build towers in the designated construction zones and upgrade them. Enemies drop money when defeated, and the player wins the level after defeating all enemies in all waves. The player can then proceed to the next level until completing the last one.
 
-The template starts out very basic, but might receive additional features over time:
+## Controls
+The entire game is controlled with the mouse, using a point-and-click style.
 
-- Basic CMake script to build your project and link SFML on any operating system
-- Basic [GitHub Actions](https://github.com/features/actions) script for all major platforms
+- Clicking on an empty construction zone will display three icons representing the three available tower types.
+- Clicking on an already constructed tower will show icons to upgrade or sell the tower. The "X" icon closes the menu.
+- If an icon has a red background, the player does not have enough money to perform the action. If the upgrade icon is black, the tower cannot be upgraded further.
+- At the start of a level, a button will appear in the top-left corner. Pressing it will begin the enemy waves.
+- After winning or losing a level, buttons will appear to retry the level or proceed to the next one. The latter will not work if the last level has been completed.
 
-## How to Use
+### Tower Descriptions
+The game does not include a menu with tower details, so here is a breakdown of each tower:
 
-1. Install [Git](https://git-scm.com/downloads) and [CMake](https://cmake.org/download/). Use your system's package manager if available.
-2. Follow [GitHub's instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) for how to use their project template feature to create your own project. If you don't want to use GitHub, see the section below.
-3. Clone your new GitHub repo and open the repo in your text editor of choice.
-4. Open [CMakeLists.txt](CMakeLists.txt). Rename the project and the target name of the executable to whatever name you want. Make sure to change all occurrences.
-5. If you want to add or remove any .cpp files, change the source files listed in the `add_executable` call in CMakeLists.txt to match the source files your project requires. If you plan on keeping the default main.cpp file then no changes are required.
-6. If your code uses the Audio or Network modules then add `sfml-audio` or `sfml-network` to the `target_link_libraries` call alongside the existing `sfml-graphics` library that is being linked.
-7. If you use Linux, install SFML's dependencies using your system package manager. On Ubuntu and other Debian-based distributions you can use the following commands:
-   ```
-   sudo apt update
-   sudo apt install \
-       libxrandr-dev \
-       libxcursor-dev \
-       libudev-dev \
-       libfreetype-dev \
-       libopenal-dev \
-       libflac-dev \
-       libvorbis-dev \
-       libgl1-mesa-dev \
-       libegl1-mesa-dev
-   ```
-8. Configure and build your project. Most popular IDEs support CMake projects with very little effort on your part.
+- **Archer Tower**  
+  **Costs:** 70 → 110 → 160  
+  Low damage, high attack speed.  
+  Attacks both ground and flying enemies.
 
-   - [VS Code](https://code.visualstudio.com) via the [CMake extension](https://code.visualstudio.com/docs/cpp/cmake-linux)
-   - [Visual Studio](https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=msvc-170)
-   - [CLion](https://www.jetbrains.com/clion/features/cmake-support.html)
-   - [Qt Creator](https://doc.qt.io/qtcreator/creator-project-cmake.html)
+- **Mage Tower**  
+  **Costs:** 100 → 160 → 240  
+  High damage, medium attack speed.  
+  Attacks both ground and flying enemies.
 
-   Using CMake from the command line is straightforward as well.
-   Be sure to run these commands in the root directory of the project you just created.
+- **Catapult Tower**  
+  **Costs:** 125 → 220 → 320  
+  Medium area damage, slow attack speed.  
+  Attacks only ground enemies.
 
-   ```
-   cmake -B build
-   cmake --build build
-   ```
+---
 
-9. Enjoy!
+## Technical Challenges
 
-## Upgrading SFML
+### Data-Driven Map
+To create the level maps, I used Tiled and loaded them into the game using `tmxlite`. Since I could only load layers based on a tileset (and not individual images), I had to create a tileset containing all the varied-sized images I had. In Tiled, I also defined the enemy paths and construction zones using object layers with points. I processed these to store the paths in a `std::vector<Vector2f>` and to generate the interactive construction zones on the screen.
 
-SFML is found via CMake's [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html) module.
-FetchContent automatically downloads SFML from GitHub and builds it alongside your own code.
-Beyond the convenience of not having to install SFML yourself, this ensures ABI compatibility and simplifies things like specifying static versus shared libraries.
+### Data-Driven Levels and Dynamic Level Loading
+Each level is represented in the code by a `struct` containing:
+- Initial health points
+- Initial money
+- Path to the `.tmx` map file
+- Path to the `.json` file with wave information.
 
-Modifying what version of SFML you want is as easy as changing the [`GIT_TAG`](CMakeLists.txt#L7) argument.
-Currently it uses the latest in-development version of SFML 2 via the `2.6.x` tag.
-If you're feeling adventurous and want to give SFML 3 a try, use the `master` tag.
-Beware, this requires changing your code to suit the modified API!
-The nice folks in the [SFML community](https://github.com/SFML/SFML#community) can help you with that transition and the bugs you may encounter along the way.
+The `.json` data is parsed and stored in another `struct`, and enemies spawn dynamically during the level based on this data. Although the two existing levels use the same map, different maps could easily be assigned.
 
-## But I want to...
+At any given time, only one level is loaded. To proceed to the next level or retry the current one, several managers reset their state by deleting all existing enemies and towers, restoring the interface to its initial state, and resetting various variables. Then, the `loadLevel` method in the `World` class initializes the new level. This process, however, is inefficient: calling the `init` method repeatedly to reset managers, which themselves call other `init` methods, leads to unnecessary overhead. Ideally, each class would have a separate `reload` method for resetting, while `init` would be called only once per instance. Refactoring this would require significant changes to the current codebase.
 
-Modify CMake options by adding them as configuration parameters (with a `-D` flag) or by modifying the contents of CMakeCache.txt and rebuilding.
+### Factory Pattern for Enemies and Towers
+When implementing the system for creating enemies and towers, my initial approach involved polymorphism by creating base classes (`Enemy` and `Tower`) and deriving specific types from them. However, due to the tedious nature of C++ and the small amount of unique code per enemy/tower type, I realized that a factory pattern (or a similar approach) would be more efficient. 
 
-### Not use GitHub
+I created factory classes responsible for instantiating enemies and towers. Managers call these factories with the type of enemy or tower they need, and the factory returns a pointer to the appropriate instance with the correct attributes. This approach centralized the large amount of code defining enemies and towers into their respective factories (e.g., `TowerFactory.cpp` has over 300 lines). Refactoring to this system took an entire day, and at one point, I encountered over 260 errors.
 
-You can use this project without a GitHub account by [downloading the contents](https://github.com/SFML/cmake-sfml-project/archive/refs/heads/master.zip) of the repository as a ZIP archive and unpacking it locally.
-This approach also avoids using Git entirely if you would prefer to not do that.
+### Sound Manager Implementation
+Adding sound to the game was challenging, especially understanding how `sf::SoundBuffer` and `sf::Sound` work in SFML. I needed a way for multiple classes to play sounds without scattering sound logic throughout the codebase. I created a `SoundManager` singleton class that stores a buffer for each sound in the game and provides public methods for other classes to play sounds without managing the sound data themselves.
 
-### Change Compilers
+---
 
-See the variety of [`CMAKE_<LANG>_COMPILER`](https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_COMPILER.html) options.
-In particular you'll want to modify `CMAKE_CXX_COMPILER` to point to the C++ compiler you wish to use.
+## Feedback and Personal Opinion
+### Course Feedback
+I think making the final project of this course require learning a library like SFML from scratch to create a game without a game engine is a poor choice. For students with little to no experience in C++ (like myself), this was incredibly difficult and time-consuming. If at least part of the curriculum had been dedicated to teaching SFML, it might have been more acceptable, but even then, it would feel like two courses in one. After all, the goal of the course is to learn C++, not SFML. Moreover, with modern game engines widely used in the industry, investing time in understanding SFML feels like a wasted effort.
 
-### Change Compiler Optimizations
+That said, not all aspects of the project were negative. I became much more comfortable with C++, and I am proud of the resulting game. Translating my usual C# coding practices into C++ was challenging at first, but once I got the hang of it, I progressed quickly.
 
-CMake abstracts away specific optimizer flags through the [`CMAKE_BUILD_TYPE`](https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html) option.
-By default this project recommends `Release` builds which enable optimizations.
-Other build types include `Debug` builds which enable debug symbols but disable optimizations.
-If you're using a multi-configuration generator (as is often the case on Windows), you can modify the [`CMAKE_CONFIGURATION_TYPES`](https://cmake.org/cmake/help/latest/variable/CMAKE_CONFIGURATION_TYPES.html#variable:CMAKE_CONFIGURATION_TYPES) option.
+### Language Feedback
+C++ feels much more tedious and error-prone than C#. While I know my opinion is partly influenced by my inexperience, I believe that even as an expert, I would feel the same. I now understand why so many people use Blueprints in Unreal Engine instead of writing C++ code, while in Unity, it’s rare to find someone using visual scripting. With the computational power of modern hardware, the greater efficiency of C++ does not seem worth the added complexity compared to C#. C# can perform just as well with proper programming practices, optimization techniques, and multithreading when necessary.
 
-### Change Generators
+---
 
-While CMake will attempt to pick a suitable default generator, some systems offer a number of generators to choose from.
-Ubuntu, for example, offers Makefiles and Ninja as two potential options.
-For a list of generators, click [here](https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html).
-To modify the generator you're using you must reconfigure your project providing a `-G` flag with a value corresponding to the generator you want.
-You can't simply modify an entry in the CMakeCache.txt file unlike the above options.
-Then you may rebuild your project with this new generator.
-
-## More Reading
-
-Here are some useful resources if you want to learn more about CMake:
-
-- [Official CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/)
-- [How to Use CMake Without the Agonizing Pain - Part 1](https://alexreinking.com/blog/how-to-use-cmake-without-the-agonizing-pain-part-1.html)
-- [How to Use CMake Without the Agonizing Pain - Part 2](https://alexreinking.com/blog/how-to-use-cmake-without-the-agonizing-pain-part-2.html)
-- [Better CMake YouTube series by Jefferon Amstutz](https://www.youtube.com/playlist?list=PL8i3OhJb4FNV10aIZ8oF0AA46HgA2ed8g)
-
-## License
-
-The source code is dual licensed under Public Domain and MIT -- choose whichever you prefer.
+## Code Improvement Suggestions
+I would love detailed feedback on how to improve my code. I am certain there are many inefficiencies and suboptimal implementations in my project, and I am eager to hear your thoughts. While the course was far from perfect, I found it to be a very thorough and comprehensive introduction to C++. Thank you for everything!
